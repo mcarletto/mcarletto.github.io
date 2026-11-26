@@ -1,4 +1,8 @@
-const images = import.meta.glob<string>("../assets/*.png", { eager: true, query: "?url", import: "default" });
+const images = import.meta.glob<string>("../assets/*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 
 // All portfolio content lives here. Edit this file to update the site.
 // Items marked `placeholder: true` are awaiting final content and are labelled on the page.
@@ -10,15 +14,28 @@ export const profile = {
   photo: images["../assets/maria_portrait.png"] ?? null,
   heroImage: images["../assets/hallway_world_map.png"] ?? null,
   introduction:
-    "I’m drawn to questions that cross disciplines—especially where research, data, and technology can make complex systems clearer and more useful.",
+    "I’m drawn to complex problems where research, data, and technology can simplify processes, clarify systems, and improve decision-making.",
   bio: [
     "My background is in medicine. That experience shaped how I approach complex problems: with curiosity, care, and attention to the people behind them.",
     "Today I lead project, OHSE, and software teams in a large passenger-transportation group in Brazil, and I research how language models can make enterprise data easier to understand and query. I’m also pursuing an MBA in Entrepreneurship.",
   ],
   education: [
-    { degree: "MBA in Entrepreneurship", institution: "Link School of Business, São Paulo", period: "2026 – 2027 (expected)" },
-    { degree: "Bachelor’s Degree in Medicine", institution: "Centro Universitário Zarns, Salvador", period: "2017 – 2023" },
-  ] as { degree: string; institution: string; period: string; placeholder?: boolean }[],
+    {
+      degree: "MBA in Entrepreneurship",
+      institution: "Link School of Business, São Paulo",
+      period: "2026 – 2027 (expected)",
+    },
+    {
+      degree: "Bachelor’s Degree in Medicine",
+      institution: "Centro Universitário Zarns, Salvador",
+      period: "2017 – 2023",
+    },
+  ] as {
+    degree: string;
+    institution: string;
+    period: string;
+    placeholder?: boolean;
+  }[],
   interests: [
     "Large language models for enterprise analytics",
     "Semantic metadata and data modeling",
@@ -29,7 +46,14 @@ export const profile = {
   languages: "Portuguese (native) · English (full professional) · Spanish (B2)",
 };
 
-export type ResearchEntry = { title: string; status: string; summary: string; tags: string[]; featured?: boolean; placeholder?: boolean };
+export type ResearchEntry = {
+  title: string;
+  status: string;
+  summary: string;
+  tags: string[];
+  featured?: boolean;
+  placeholder?: boolean;
+};
 export const research: ResearchEntry[] = [
   {
     title: "LLM-assisted enterprise analytics and semantic data modeling",
@@ -55,20 +79,91 @@ export const research: ResearchEntry[] = [
   },
 ];
 
-export type Publication = { authors: string; title: string; venue: string; year: string; links?: Link[]; placeholder?: boolean };
+export type Publication = {
+  authors: string;
+  title: string;
+  venue: string;
+  year: string;
+  links?: Link[];
+  placeholder?: boolean;
+};
 export const publications: Publication[] = [
-  { authors: "Menezes S, Jamoulle M, Carletto M, et al.", title: "Blood transcriptomic analyses reveal persistent SARS-CoV-2 RNA and candidate biomarkers in post-COVID-19 condition", venue: "The Lancet Microbe, 5", year: "2024", links: [{ label: "DOI", href: "https://doi.org/10.1016/S2666-5247(24)00055-7" }] },
-  { authors: "Silva AR, Chaves Neto JS, Lopes FFL, et al., Carletto MP", title: "Meningites bacterianas e virais: dados dos custos, óbitos, internações e busca na internet no Brasil", venue: "Diálogos & Ciência, 3(2):34–43", year: "2024" },
-  { authors: "Brasil JF, Sacramento IO, Costa JLFR, Brasil LFF, Carletto MP, et al.", title: "The Impact of the Place of Delivery, Type of Birth and Number of Antenatal Visits on the Apgar Score", venue: "Journal of Health Sciences, 25(2):83–88", year: "2023" },
-  { authors: "Lopes FFL, Lima ACM, Césare N, Araújo DN, Carletto MP, et al.", title: "Improving Clinical Decision Using the Diagnosis, Sign and Symptoms of Parasitic Diseases Using a Network Approach", venue: "Diálogos & Ciência, 2(1):173–185", year: "2022" },
-  { authors: "Peixoto FO, Bittencourt GO, Diniz MF, et al., Carletto MP", title: "Análise da produção científica do curso de Medicina em uma faculdade particular na Bahia", venue: "Graduação em Movimento – Ciências da Saúde, 1(3):49–59", year: "2022" },
+  {
+    authors: "Menezes S, Jamoulle M, Carletto M, et al.",
+    title:
+      "Blood transcriptomic analyses reveal persistent SARS-CoV-2 RNA and candidate biomarkers in post-COVID-19 condition",
+    venue: "The Lancet Microbe, 5",
+    year: "2024",
+    links: [
+      { label: "DOI", href: "https://doi.org/10.1016/S2666-5247(24)00055-7" },
+    ],
+  },
+  {
+    authors: "Silva AR, Chaves Neto JS, Lopes FFL, et al., Carletto MP",
+    title:
+      "Meningites bacterianas e virais: dados dos custos, óbitos, internações e busca na internet no Brasil",
+    venue: "Diálogos & Ciência, 3(2):34–43",
+    year: "2024",
+  },
+  {
+    authors:
+      "Brasil JF, Sacramento IO, Costa JLFR, Brasil LFF, Carletto MP, et al.",
+    title:
+      "The Impact of the Place of Delivery, Type of Birth and Number of Antenatal Visits on the Apgar Score",
+    venue: "Journal of Health Sciences, 25(2):83–88",
+    year: "2023",
+  },
+  {
+    authors: "Lopes FFL, Lima ACM, Césare N, Araújo DN, Carletto MP, et al.",
+    title:
+      "Improving Clinical Decision Using the Diagnosis, Sign and Symptoms of Parasitic Diseases Using a Network Approach",
+    venue: "Diálogos & Ciência, 2(1):173–185",
+    year: "2022",
+  },
+  {
+    authors: "Peixoto FO, Bittencourt GO, Diniz MF, et al., Carletto MP",
+    title:
+      "Análise da produção científica do curso de Medicina em uma faculdade particular na Bahia",
+    venue: "Graduação em Movimento – Ciências da Saúde, 1(3):49–59",
+    year: "2022",
+  },
 ];
 export const presentations: Publication[] = [
-  { authors: "Carletto MP, Farago F, Fukutani K.", title: "Driver Scheduling and Overtime Exposure in a Brazilian Intercity Bus Corridor", venue: "37th Annual POMS Conference, Orlando (accepted poster)", year: "2027" },
-  { authors: "Carletto MP, Farago F.", title: "Generative AI and Entrepreneurial Experimentation: Lower Costs, Persistent Uncertainty", venue: "37th Annual POMS Conference, Orlando (accepted poster)", year: "2027" },
-  { authors: "Carletto MP, Massetto FI.", title: "A Specification-grounded LLM Workflow for Translating Business Requirements into Analytical Data Models", venue: "SLDS, New York (poster)", year: "2026" },
-  { authors: "Carletto MP, Fukutani KF.", title: "Quando a Normalização Induz Correlação: Dependência Espúria Gerada por Referências Compartilhadas", venue: "X EBEST, IME – UFBA, Salvador (poster)", year: "2026" },
-  { authors: "Carletto MP, Fukutani KF.", title: "Discretização por Quantis e Redes Bayesianas para Integrar Bases Transcriptômicas Heterogêneas", venue: "X EBEST, IME – UFBA, Salvador (poster)", year: "2026" },
+  {
+    authors: "Carletto MP, Farago F, Fukutani K.",
+    title:
+      "Driver Scheduling and Overtime Exposure in a Brazilian Intercity Bus Corridor",
+    venue: "37th Annual POMS Conference, Orlando (accepted poster)",
+    year: "2027",
+  },
+  {
+    authors: "Carletto MP, Farago F.",
+    title:
+      "Generative AI and Entrepreneurial Experimentation: Lower Costs, Persistent Uncertainty",
+    venue: "37th Annual POMS Conference, Orlando (accepted poster)",
+    year: "2027",
+  },
+  {
+    authors: "Carletto MP, Massetto FI.",
+    title:
+      "A Specification-grounded LLM Workflow for Translating Business Requirements into Analytical Data Models",
+    venue: "SLDS, New York (poster)",
+    year: "2026",
+  },
+  {
+    authors: "Carletto MP, Fukutani KF.",
+    title:
+      "Quando a Normalização Induz Correlação: Dependência Espúria Gerada por Referências Compartilhadas",
+    venue: "X EBEST, IME – UFBA, Salvador (poster)",
+    year: "2026",
+  },
+  {
+    authors: "Carletto MP, Fukutani KF.",
+    title:
+      "Discretização por Quantis e Redes Bayesianas para Integrar Bases Transcriptômicas Heterogêneas",
+    venue: "X EBEST, IME – UFBA, Salvador (poster)",
+    year: "2026",
+  },
 ];
 
 export type Metric = { label: string; value: string };
@@ -121,29 +216,84 @@ export const projects: Project[] = [
   {
     slug: "text-to-sql-metadata",
     title: "Specification-grounded LLM workflow for analytical data models",
-    summary: "An LLM workflow that documents undocumented enterprise databases and turns business requirements into SQL.",
-    problem: "Natural-language questions often fail on databases whose tables and columns have no descriptive metadata.",
-    contribution: "Designed and implemented the workflow; presented as a poster at SLDS 2026 with Prof. F. I. Massetto.",
+    summary:
+      "An LLM workflow that documents undocumented enterprise databases and turns business requirements into SQL.",
+    problem:
+      "Natural-language questions often fail on databases whose tables and columns have no descriptive metadata.",
+    contribution:
+      "Designed and implemented the workflow; presented as a poster at SLDS 2026 with Prof. F. I. Massetto.",
     technologies: ["n8n", "Oracle SQL", "LLMs"],
-    architecture: ["Database schema extraction", "Business specifications", "LLM metadata generation", "SQL generation", "Evaluation"],
-    results: "Business specifications changed 779 of 856 shared attribute descriptions (median Jaccard similarity 0.50) across a 17-query comparison.",
-    metrics: [{ label: "Attributes analyzed", value: "856" }, { label: "Descriptions changed", value: "779" }, { label: "SQL queries", value: "17" }, { label: "Median Jaccard", value: "0.50" }],
+    architecture: [
+      "Database schema extraction",
+      "Business specifications",
+      "LLM metadata generation",
+      "SQL generation",
+      "Evaluation",
+    ],
+    results:
+      "Business specifications changed 779 of 856 shared attribute descriptions (median Jaccard similarity 0.50) across a 17-query comparison.",
+    metrics: [
+      { label: "Attributes analyzed", value: "856" },
+      { label: "Descriptions changed", value: "779" },
+      { label: "SQL queries", value: "17" },
+      { label: "Median Jaccard", value: "0.50" },
+    ],
     limitations: "Preliminary evaluation on one enterprise database.",
     links: [],
     featured: true,
   },
 ];
 
-export type Experience = { role: string; organization: string; period: string; description: string; placeholder?: boolean };
+export type Experience = {
+  role: string;
+  organization: string;
+  period: string;
+  description: string;
+  placeholder?: boolean;
+};
 export const experience: Experience[] = [
-  { role: "Project & OHSE Coordinator", organization: "Grupo Brasileiro, Itabuna", period: "07/2026 – Present", description: "Leads a team of 30 across OHSE, projects, and software development. Established standard monitoring and reporting across a portfolio of 18 projects." },
-  { role: "Data Analytics Specialist", organization: "Grupo Brasileiro", period: "03/2025 – 12/2025", description: "Worked as a Product Owner, translating business needs into technical specifications, introducing Scrum routines, and building SQL and Power BI dashboards." },
-  { role: "Executive Leadership Development Program", organization: "Grupo Brasileiro", period: "09/2023 – 02/2025", description: "About 18 months of cross-functional training across operational and administrative areas, including Fundação Dom Cabral’s PAEX program." },
+  {
+    role: "Project & OHSE Coordinator",
+    organization: "Grupo Brasileiro, Itabuna",
+    period: "07/2026 – Present",
+    description:
+      "Leads a team of 30 across OHSE, projects, and software development. Established standard monitoring and reporting across a portfolio of 18 projects.",
+  },
+  {
+    role: "Data Analytics Specialist",
+    organization: "Grupo Brasileiro",
+    period: "03/2025 – 12/2025",
+    description:
+      "Worked as a Product Owner, translating business needs into technical specifications, introducing Scrum routines, and building SQL and Power BI dashboards.",
+  },
+  {
+    role: "Executive Leadership Development Program",
+    organization: "Grupo Brasileiro",
+    period: "09/2023 – 02/2025",
+    description:
+      "About 18 months of cross-functional training across operational and administrative areas, including Fundação Dom Cabral’s PAEX program.",
+  },
 ];
 
-export const cv = { file: `${import.meta.env.BASE_URL}cv.pdf`, updated: "November 2026" };
+export const cv = {
+  file: `${import.meta.env.BASE_URL}cv.pdf`,
+  updated: "November 2026",
+};
 
-export const contact: { label: string; value: string; href: string; placeholder?: boolean }[] = [
-  { label: "Email", value: "mprcarletto@gmail.com", href: "mailto:mprcarletto@gmail.com" },
-  { label: "LinkedIn", value: "linkedin.com/in/mariapaulacarletto", href: "https://www.linkedin.com/in/mariapaulacarletto" },
+export const contact: {
+  label: string;
+  value: string;
+  href: string;
+  placeholder?: boolean;
+}[] = [
+  {
+    label: "Email",
+    value: "mprcarletto@gmail.com",
+    href: "mailto:mprcarletto@gmail.com",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/mariapaulacarletto",
+    href: "https://www.linkedin.com/in/mariapaulacarletto",
+  },
 ];
