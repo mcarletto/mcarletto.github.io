@@ -288,8 +288,8 @@ export const contact: {
 }[] = [
   {
     label: "Email",
-    value: "mprcarletto@gmail.com",
-    href: "mailto:mprcarletto@gmail.com",
+    value: "maria.carletto@aluno.lsb.edu.br",
+    href: "mailto:maria.carletto@aluno.lsb.edu.br",
   },
   {
     label: "LinkedIn",
