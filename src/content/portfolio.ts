@@ -296,4 +296,9 @@ export const contact: {
     value: "linkedin.com/in/mariapaulacarletto",
     href: "https://www.linkedin.com/in/mariapaulacarletto",
   },
+  {
+  label: "GitHub",
+  value: "https://github.com/mcarletto",
+  href: "https://github.com/mcarletto?tab=repositories",
+  },
 ];
